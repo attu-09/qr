@@ -42,3 +42,13 @@ def logout(request):
         return redirect("login")
     except Exception as e:
         return redirect("login")
+
+def dbEmpty(request):
+    if request.method=="POST":
+        pas=request.POST['pas']
+        if pas=="empty":
+            data = BJPdata.objects.all().delete()
+            return render(request,"dbAdmin.html",{"msg":"Success"})
+        else:
+            return render(request,"dbAdmin.html",{"msg":"Wrong Pass"})
+    return render(request,"dbAdmin.html")
