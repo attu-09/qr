@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{%static "admin.css"%}">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="{%static "src/jquery.table2excel.js" %}"></script>
     <title>Admin</title>
 </head>
 <body>
@@ -15,10 +17,13 @@
     <div class="welcome" >
         Welcome
     </div>
-    <button type="button" name="button" onclick="window.location.assign('adm/logout')">LogOut</button>
+    <div >
+      <button type="button" name="button" id="excelBtn">Download</button>
+      <button type="button" name="button" onclick="window.location.assign('adm/logout')">LogOut</button>
+    </div>
   </div>
     <div class="table-container" style="width: 85%;">
-        <table style="width: 100%;">
+        <table style="width: 100%;" id="table2excel">
             <thead>
                 <tr>
                     <th>S.no</th>
@@ -50,6 +55,16 @@
         location.reload(true);
       }
       setTimeout(refresh,60000);
+
+      $("#excelBtn").click(function(){
+        $("#table2excel").table2excel({
+      // exclude CSS class
+      exclude: ".noExl",
+      name: "Worksheet Name",
+      filename: "bjpData", //do not include extension
+      fileext: ".xls" // file extension
+    });
+  });
     </script>
 </body>
 </html>

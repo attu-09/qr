@@ -26,7 +26,6 @@ SECRET_KEY = '-y%f#s&4+#&cl+u6nrf_l2z3lx4zc6&qs#bar64n1%90nnl!d)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-
 ALLOWED_HOSTS = ['*']
 
 
@@ -82,6 +81,7 @@ WSGI_APPLICATION = 'QR_backend.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
